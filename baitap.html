@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin sinh viên HVNH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h2>Kết quả xử lý</h2>
+        <div id="display" class="info-text">
+            Đang tính toán...
+        </div>
+    </div>
+
+    <script>
+        // Khởi tạo biến
+        const fullName = "Hoang Pham Thanh";
+        const studentId = "27A4042985";
+
+        // 1. Xử lý tạo Email
+        // Tách chuỗi: ["hoang", "pham", "thanh"]
+        const parts = fullName.toLowerCase().split(" ");
+        const lastNameChar = parts[0][0];   // Lấy chữ 'h'
+        const middleChar = parts[1][0];     // Lấy chữ 'p'
+        const firstName = parts[2];         // Lấy chữ 'thanh'
+        
+        const email = `${lastNameChar}${middleChar}${firstName}.${studentId.toLowerCase()}@hvnh.edu.vn`;
+
+        // 2. Phân tích mã sinh viên
+        const coursePeriod = studentId.substring(0, 2); // 2 ký tự đầu (Khóa)
+        
+        // Xác định khoa (Giả định A404 là Hệ thống thông tin quản lý)
+        let faculty = "Chưa xác định";
+        if (studentId.includes("A404")) {
+            faculty = "Công Nghệ Thông Tin & Kinh Tế S";
+        }
+
+        // 3. Tính tổng 4 số cuối
+        const lastFour = studentId.slice(-4); // Lấy "2985"
+        const sum = lastFour.split('')
+                            .reduce((total, num) => total + parseInt(num), 0);
+
+        // 4. Hiển thị kết quả ra màn hình
+        const displayDiv = document.getElementById("display");
+        displayDiv.innerHTML = `
+            Email: <span class="email-box">${email}</span>
+            <br>
+            Xin chào <span class="highlight">${fullName}</span>, 
+            bạn là sinh viên khóa <span class="highlight">${coursePeriod}</span>, 
+            khoa <b>${faculty}</b>.
+            <br><br>
+            Tổng 4 số cuối trong mã sinh viên là: <b>${sum}</b>
+        `;
+    </script>
+</body>
+</html>
