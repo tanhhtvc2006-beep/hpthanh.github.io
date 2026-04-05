@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Sinh viên HVNH</title>
+    
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>CÔNG CỤ TỰ ĐỘNG TẠO EMAIL SINH VIÊN</h2>
+    
+    <div class="upload-section">
+        <p>Chọn file Excel (.xlsx hoặc .xls) để bắt đầu</p>
+        <input type="file" id="uploadExcel" accept=".xlsx, .xls" />
+    </div>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Họ tên</th>
+                <th>Mã SV</th>
+                <th>Khóa</th>
+                <th>Khoa</th>
+                <th>Email sinh viên</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="5" class="empty-state">Chưa có dữ liệu. Hãy tải file lên!</td></tr>
+        </tbody>
+    </table>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
